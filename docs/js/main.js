@@ -1,4 +1,6 @@
 window.addEventListener('load', async(event) => {
+    const mention = new WebMention(30) 
+    await mention.make() 
     try {
         window.mpurse.updateEmitter.removeAllListeners()
           .on('stateChanged', isUnlocked => console.log(isUnlocked))
@@ -22,7 +24,5 @@ window.addEventListener('load', async(event) => {
     document.getElementById('call-back-ok').addEventListener('input', async(event) => { await gen.generate() })
     document.getElementById('call-back-ng').addEventListener('input', async(event) => { await gen.generate() })
     document.getElementById('copy-to-clipboard').addEventListener('click', async(event) => { await gen.copy() })
-    const mention = new WebMention(30) 
-    await mention.make() 
 });
 
